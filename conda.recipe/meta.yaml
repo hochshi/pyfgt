@@ -18,6 +18,7 @@ requirements:
   host:
     - python
     - pip !=22.1.0
+    - eigen3
 
   run:
     - python
