@@ -2,10 +2,8 @@
 
 |      CI              | status |
 |----------------------|--------|
-| MSVC 2019            | [![AppVeyor][appveyor-badge]][appveyor-link] |
-| conda.recipe         | [![Conda Actions Status][actions-conda-badge]][actions-conda-link] |
-| pip builds           | [![Pip Actions Status][actions-pip-badge]][actions-pip-link] |
-| [`cibuildwheel`][]   | [![Wheels Actions Status][actions-wheels-badge]][actions-wheels-link] |
+| conda.recipe         | [![Conda](https://github.com/hochshi/pyfgt/actions/workflows/conda.yml/badge.svg?branch=master)](https://github.com/hochshi/pyfgt/actions/workflows/conda.yml) |
+| pip builds           | [![Pip](https://github.com/hochshi/pyfgt/actions/workflows/pip.yml/badge.svg)](https://github.com/hochshi/pyfgt/actions/workflows/pip.yml) |
 
 [gitter-badge]:            https://badges.gitter.im/pybind/Lobby.svg
 [gitter-link]:             https://gitter.im/pybind/Lobby
