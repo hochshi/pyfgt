@@ -3,5 +3,5 @@
     url = https://github.com/pybind/pybind11.git
     branch = master
 [submodule "fgt"]
-	path = fgt
-	url = https://github.com/hochshi/fgt.git
+    path = fgt
+    url = https://github.com/hochshi/fgt.git
