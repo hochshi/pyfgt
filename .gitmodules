@@ -4,4 +4,4 @@
     branch = master
 [submodule "fgt"]
 	path = fgt
-	url = https://github.com/gadomski/fgt.git
+	url = https://github.com/hochshi/fgt.git
