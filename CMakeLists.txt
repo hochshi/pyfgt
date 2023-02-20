@@ -11,7 +11,10 @@ add_library(pyfgt MODULE
   src/main.cpp
 )
 
-target_link_options(pyfgt PUBLIC -undefined dynamic_lookup)
+if(APPLE)
+  target_link_options(pyfgt PUBLIC -undefined dynamic_lookup)
+endif(APPLE)
+
 target_link_libraries(pyfgt
   PRIVATE pybind11::headers
 )
