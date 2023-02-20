@@ -129,9 +129,8 @@ class CMakeBuild(build_ext):
 setup(
     name="pyfgt",
     version="0.0.1",
-    author="Dean Moldovan",
-    author_email="dean0x7d@gmail.com",
-    description="A test project using pybind11 and CMake",
+    author="hochshi",
+    description="Python bindings around fgt a C++ library for fast Gauss transforms.",
     long_description="",
     ext_modules=[CMakeExtension("pyfgt")],
     cmdclass={"build_ext": CMakeBuild},
