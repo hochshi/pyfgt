@@ -1,4 +1,4 @@
-# A pybind11 wrapper for fgt a C++ library for fast Gauss transforms. 
+# A pybind11 wrapper for fgt a C++ library for fast Gauss transforms.
 
 |      CI              | status |
 |----------------------|--------|
