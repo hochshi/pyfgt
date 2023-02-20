@@ -15,12 +15,14 @@ if(APPLE)
   target_link_options(pyfgt PUBLIC -undefined dynamic_lookup)
 endif(APPLE)
 
+
 target_link_libraries(pyfgt
   PRIVATE pybind11::headers
 )
 pybind11_extension(pyfgt)
 
 add_subdirectory(fgt)
+set_property(TARGET Library-C++ PROPERTY POSITION_INDEPENDENT_CODE ON)
 # find_package(Fgt REQUIRED)
 
 # EXAMPLE_VERSION_INFO is defined by setup.py and passed into the C++ code as a
