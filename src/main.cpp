@@ -59,36 +59,36 @@ PYBIND11_MODULE(pyfgt, m) {
     )pbdoc";
 
   m.def("direct", &direct<fgt::MatrixRef>, py::arg("x").noconvert(), py::arg("y").noconvert(),
-        py::arg("bandwidth"));
+        py::arg("bandwidth"), py::return_value_policy::take_ownership);
   m.def("wdirect", &wdirect<fgt::MatrixRef>, py::arg("x").noconvert(), py::arg("y").noconvert(),
-        py::arg("bandwidth"), py::arg("weights").noconvert());
+        py::arg("bandwidth"), py::arg("weights").noconvert(), py::return_value_policy::take_ownership);
 
   m.def("direct3", &direct<Matrix3Ref>, py::arg("x").noconvert(), py::arg("y").noconvert(),
-        py::arg("bandwidth"));
+        py::arg("bandwidth"), py::return_value_policy::take_ownership);
   m.def("wdirect3", &wdirect<Matrix3Ref>, py::arg("x").noconvert(), py::arg("y").noconvert(),
-        py::arg("bandwidth"), py::arg("weights").noconvert());
+        py::arg("bandwidth"), py::arg("weights").noconvert(), py::return_value_policy::take_ownership);
     
   m.def("mat_direct", &mat_direct<fgt::MatrixRef>, py::arg("x").noconvert(), py::arg("y").noconvert(),
-        py::arg("bandwidth"));
+        py::arg("bandwidth"), py::return_value_policy::take_ownership);
 
   m.def("mat_direct3", &mat_direct<Matrix3Ref>, py::arg("x").noconvert(), py::arg("y").noconvert(),
-        py::arg("bandwidth"));
+        py::arg("bandwidth"), py::return_value_policy::take_ownership);
 
   m.def("direct_tree", &direct_tree<fgt::MatrixRef>, py::arg("x").noconvert(), py::arg("y").noconvert(),
-        py::arg("bandwidth"));
+        py::arg("bandwidth"), py::return_value_policy::take_ownership);
   m.def("wdirect_tree", &wdirect_tree<fgt::MatrixRef>, py::arg("x").noconvert(), py::arg("y").noconvert(),
-        py::arg("bandwidth"), py::arg("weights").noconvert());
+        py::arg("bandwidth"), py::arg("weights").noconvert(), py::return_value_policy::take_ownership);
 
   m.def("direct_tree3", &direct_tree<Matrix3Ref>, py::arg("x").noconvert(), py::arg("y").noconvert(),
-        py::arg("bandwidth"));
+        py::arg("bandwidth"), py::return_value_policy::take_ownership);
   m.def("wdirect_tree3", &wdirect_tree<Matrix3Ref>, py::arg("x").noconvert(), py::arg("y").noconvert(),
-        py::arg("bandwidth"), py::arg("weights").noconvert());
+        py::arg("bandwidth"), py::arg("weights").noconvert(), py::return_value_policy::take_ownership);
     
   m.def("mat_direct_tree", &mat_direct_tree<fgt::MatrixRef>, py::arg("x").noconvert(), py::arg("y").noconvert(),
-        py::arg("bandwidth"));
+        py::arg("bandwidth"), py::return_value_policy::take_ownership);
     
   m.def("mat_direct_tree3", &mat_direct_tree<Matrix3Ref>, py::arg("x").noconvert(), py::arg("y").noconvert(),
-        py::arg("bandwidth"));
+        py::arg("bandwidth"), py::return_value_policy::take_ownership);
     
 #ifdef VERSION_INFO
   m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);
