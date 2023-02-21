@@ -34,12 +34,22 @@ Eigen::VectorXd wdirect_tree(const T &x, const T &y,
   return fgt::direct_tree(x, y, bandwidth, 1e-8, weights);
 }
 
+template<class T>
+Eigen::MatrixXd mat_direct(const T&x, const T& y, double bandwidth) {
+  return fgt::mat_direct(x, y, bandwidth);
+}
+
+template<class T>
+Eigen::MatrixXd mat_direct_tree(const T&x, const T& y, double bandwidth) {
+  return fgt::mat_direct_tree(x, y, bandwidth, 1e-8);
+}
+
 PYBIND11_MODULE(pyfgt, m) {
   m.doc() = R"pbdoc(
-        Pybind11 example plugin
+        Pybind11 pyfgt 
         -----------------------
 
-        .. currentmodule:: cmake_example
+        .. currentmodule:: pyfgt
 
         .. autosummary::
            :toctree: _generate
@@ -48,14 +58,6 @@ PYBIND11_MODULE(pyfgt, m) {
            subtract
     )pbdoc";
 
-  // m.def("direct",
-  //       [](const Eigen::MatrixXd &x, const Eigen::MatrixXd &y,
-  //          double bandwidth) { return fgt::direct(x, y, bandwidth); });
-
-  // m.def("wdirect", [](const Eigen::MatrixXd &x, const Eigen::MatrixXd &y,
-  //                     double bandwidth, const Eigen::VectorXd weights) {
-  //   return fgt::direct(x, y, bandwidth, weights);
-  // });
   m.def("direct", &direct<fgt::MatrixRef>, py::arg("x").noconvert(), py::arg("y").noconvert(),
         py::arg("bandwidth"));
   m.def("wdirect", &wdirect<fgt::MatrixRef>, py::arg("x").noconvert(), py::arg("y").noconvert(),
@@ -66,6 +68,12 @@ PYBIND11_MODULE(pyfgt, m) {
   m.def("wdirect3", &wdirect<Matrix3Ref>, py::arg("x").noconvert(), py::arg("y").noconvert(),
         py::arg("bandwidth"), py::arg("weights").noconvert());
     
+  m.def("mat_direct", &mat_direct<fgt::MatrixRef>, py::arg("x").noconvert(), py::arg("y").noconvert(),
+        py::arg("bandwidth"));
+
+  m.def("mat_direct3", &mat_direct<Matrix3Ref>, py::arg("x").noconvert(), py::arg("y").noconvert(),
+        py::arg("bandwidth"));
+
   m.def("direct_tree", &direct_tree<fgt::MatrixRef>, py::arg("x").noconvert(), py::arg("y").noconvert(),
         py::arg("bandwidth"));
   m.def("wdirect_tree", &wdirect_tree<fgt::MatrixRef>, py::arg("x").noconvert(), py::arg("y").noconvert(),
@@ -75,6 +83,12 @@ PYBIND11_MODULE(pyfgt, m) {
         py::arg("bandwidth"));
   m.def("wdirect_tree3", &wdirect_tree<Matrix3Ref>, py::arg("x").noconvert(), py::arg("y").noconvert(),
         py::arg("bandwidth"), py::arg("weights").noconvert());
+    
+  m.def("mat_direct_tree", &mat_direct_tree<fgt::MatrixRef>, py::arg("x").noconvert(), py::arg("y").noconvert(),
+        py::arg("bandwidth"));
+    
+  m.def("mat_direct_tree3", &mat_direct_tree<Matrix3Ref>, py::arg("x").noconvert(), py::arg("y").noconvert(),
+        py::arg("bandwidth"));
     
 #ifdef VERSION_INFO
   m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);
