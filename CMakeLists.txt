@@ -16,7 +16,9 @@ endif(APPLE)
 target_link_libraries(pyfgt PRIVATE pybind11::headers)
 pybind11_extension(pyfgt)
 
-set(WITH_EIGEN_NOMODULE ON CACHE BOOL "Set FGT to use NO_MODULE when finding Eigen3")
+set(WITH_EIGEN_NOMODULE
+    ON
+    CACHE BOOL "Set FGT to use NO_MODULE when finding Eigen3")
 add_subdirectory(fgt)
 set_property(TARGET Library-C++ PROPERTY POSITION_INDEPENDENT_CODE ON)
 # find_package(Fgt REQUIRED)
